@@ -1,11 +1,13 @@
 %YAML 1.1
 # ROS buildfarm source-build file
 ---
-jenkins_commit_job_priority: 69
+collate_test_stats: true
+jenkins_commit_job_priority: 55
 jenkins_job_timeout: 120
-jenkins_pull_request_job_priority: 59
+jenkins_pull_request_job_priority: 45
 notifications:
   committers: false
+  compiler_warnings: false
   emails:
   - vipin.viswanathan@hansonrobotics.com
   maintainers: false
@@ -68,13 +70,11 @@ repositories:
     -----END PGP PUBLIC KEY BLOCK-----
 targets:
   ubuntu:
-    xenial:
+    bionic:
       amd64:
 test_commits:
   default: true
-# do not run pr builds on the test farm (otherwise we'll get multiple reports)
 test_pull_requests:
   default: false
-  force: false
 type: source-build
 version: 2

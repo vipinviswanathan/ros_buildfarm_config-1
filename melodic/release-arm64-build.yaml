@@ -1,17 +1,20 @@
 %YAML 1.1
-# ROS buildfarm source-build file
+# ROS buildfarm release-build file
 ---
-jenkins_commit_job_priority: 69
-jenkins_job_timeout: 120
-jenkins_pull_request_job_priority: 59
+abi_incompatibility_assumed: true
+jenkins_binary_job_priority: 95
+jenkins_binary_job_timeout: 720
+jenkins_source_job_priority: 65
+jenkins_source_job_timeout: 30
 notifications:
-  committers: false
   emails:
   - vipin.viswanathan@hansonrobotics.com
-  maintainers: false
+  maintainers: true
+package_blacklist:
+  - leap_motion
+sync:
+  package_count: 400
 repositories:
-  urls:
-  - http://172.17.0.3/ubuntu/testing
   keys:
   - |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -66,15 +69,13 @@ repositories:
     W0K0BmfdAZ4jzif3ELLCtWN/jABnv+0=
     =ui2n
     -----END PGP PUBLIC KEY BLOCK-----
+  urls:
+  - http://172.17.0.3/ubuntu/building
+target_repository: http://172.17.0.3/ubuntu/building
 targets:
   ubuntu:
-    xenial:
-      amd64:
-test_commits:
-  default: true
-# do not run pr builds on the test farm (otherwise we'll get multiple reports)
-test_pull_requests:
-  default: false
-  force: false
-type: source-build
+    bionic:
+      arm64:
+type: release-build
+upload_credential_id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
 version: 2

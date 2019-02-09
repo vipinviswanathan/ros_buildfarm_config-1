@@ -14,7 +14,7 @@ jenkins_job_priority: 90
 jenkins_job_timeout: 30
 notifications:
   emails:
-  - ros-buildfarm-testfarm@googlegroups.com
+  - vipin.viswanathan@hansonrobotics.com
 targets:
   ubuntu:
     trusty:
@@ -22,7 +22,7 @@ targets:
 type: doc-build
 upload_credential_id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
 upload_host: repo
-upload_root: /var/repos/docs
+upload_root: /home/repos/docs
 # The `upload_user` defaults from source and can be tuned as needed.
 # upload_user: jenkins-agent
 version: 2

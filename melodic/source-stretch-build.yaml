@@ -1,11 +1,12 @@
 %YAML 1.1
 # ROS buildfarm source-build file
 ---
-jenkins_commit_job_priority: 69
+jenkins_commit_job_priority: 55
 jenkins_job_timeout: 120
-jenkins_pull_request_job_priority: 59
+jenkins_pull_request_job_priority: 45
 notifications:
   committers: false
+  compiler_warnings: false
   emails:
   - vipin.viswanathan@hansonrobotics.com
   maintainers: false
@@ -66,15 +67,22 @@ repositories:
     W0K0BmfdAZ4jzif3ELLCtWN/jABnv+0=
     =ui2n
     -----END PGP PUBLIC KEY BLOCK-----
+repository_whitelist:
+  - actionlib
+  - bond_core
+  - class_loader
+  - dynamic_reconfigure
+  - nodelet_core
+  - pluginlib
+  - ros_comm
+skip_ignored_repositories: true
 targets:
-  ubuntu:
-    xenial:
+  debian:
+    stretch:
       amd64:
 test_commits:
   default: true
-# do not run pr builds on the test farm (otherwise we'll get multiple reports)
 test_pull_requests:
   default: false
-  force: false
 type: source-build
 version: 2
