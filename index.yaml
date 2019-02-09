@@ -52,7 +52,7 @@ distributions:
       ds: melodic/source-stretch-build.yaml
 doc_builds:
   independent-packages: doc-independent-build.yaml
-jenkins_url: http://192.168.1.124:8080
+jenkins_url: http://192.168.1.124:41000
 notification_emails:
 - vipin.viswanathan@hansonrobotics.com
 prerequisites:
